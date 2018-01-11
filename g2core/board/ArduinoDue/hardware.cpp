@@ -32,11 +32,11 @@
 #include "controller.h"
 #include "text_parser.h"
 #include "board_xio.h"
+#include "planner.h"
 
 #include "MotateUtilities.h"
 #include "MotateUniqueID.h"
 #include "MotatePower.h"
-
 
 /*
  * hardware_init() - lowest level hardware init
@@ -45,6 +45,8 @@
 void hardware_init()
 {
     board_hardware_init();
+    watchdog_pwm_pin.setFrequency(12500);
+    watchdog_pwm_pin = 0.5f;
 	return;
 }
 
@@ -54,6 +56,28 @@ void hardware_init()
 
 stat_t hardware_periodic()
 {
+    if (!mp_is_phat_city_time()) { return STAT_OK; }
+
+    auto new_machine_state = cm_get_machine_state();
+
+    switch(new_machine_state)
+    {
+    case MACHINE_INITIALIZING:
+    case MACHINE_READY:
+    case MACHINE_ALARM:
+    case MACHINE_PROGRAM_STOP:
+    case MACHINE_PROGRAM_END:
+    case MACHINE_CYCLE:
+    	watchdog_pwm_pin = 0.5f;
+    	break;
+    case MACHINE_INTERLOCK:
+    case MACHINE_SHUTDOWN:
+    case MACHINE_PANIC:
+    	watchdog_pwm_pin = 0.0f;
+    	break;
+    default:
+    	break;
+    }
     return STAT_OK;
 }
 
