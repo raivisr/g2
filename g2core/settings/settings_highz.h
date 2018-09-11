@@ -59,7 +59,7 @@
 // *** Machine configuration settings *** //
 
 #ifndef USB_SERIAL_PORTS_EXPOSED
-#define USB_SERIAL_PORTS_EXPOSED   2        // Valid options are 1 or 2, only!
+#define USB_SERIAL_PORTS_EXPOSED   1        // Valid options are 1 or 2, only!
 #endif
 
 
@@ -384,10 +384,10 @@
 #define X_TRAVEL_MAX                735.0                     // {xtm:  travel between switches or crashes
 #endif
 #ifndef X_JERK_MAX
-#define X_JERK_MAX                  2000.0                  // {xjm:
+#define X_JERK_MAX                  3000.0                  // {xjm:
 #endif
 #ifndef X_JERK_HIGH_SPEED
-#define X_JERK_HIGH_SPEED           3000.0                 // {xjh:
+#define X_JERK_HIGH_SPEED           5000.0                 // {xjh:
 #endif
 #ifndef X_HOMING_INPUT
 #define X_HOMING_INPUT              1                       // {xhi:  input used for homing or 0 to disable
@@ -425,10 +425,10 @@
 #define Y_TRAVEL_MAX                450.0
 #endif
 #ifndef Y_JERK_MAX
-#define Y_JERK_MAX                  2000.0
+#define Y_JERK_MAX                  3000.0
 #endif
 #ifndef Y_JERK_HIGH_SPEED
-#define Y_JERK_HIGH_SPEED           3000.0
+#define Y_JERK_HIGH_SPEED           5000.0
 #endif
 #ifndef Y_HOMING_INPUT
 #define Y_HOMING_INPUT              2
@@ -466,10 +466,10 @@
 #define Z_TRAVEL_MIN                0.0
 #endif
 #ifndef Z_JERK_MAX
-#define Z_JERK_MAX                  2000.0
+#define Z_JERK_MAX                  3000.0
 #endif
 #ifndef Z_JERK_HIGH_SPEED
-#define Z_JERK_HIGH_SPEED           3000.0
+#define Z_JERK_HIGH_SPEED           5000.0
 #endif
 #ifndef Z_HOMING_INPUT
 #define Z_HOMING_INPUT              3
@@ -865,4 +865,35 @@
 
 #ifndef DO13_MODE
 #define DO13_MODE                   IO_ACTIVE_HIGH
+#endif
+
+#ifndef P1_PWM_FREQUENCY
+#define P1_PWM_FREQUENCY            4000                   // in Hz
+#endif
+#ifndef P1_CW_SPEED_LO
+#define P1_CW_SPEED_LO              0.0                  // in RPM (arbitrary units)
+#endif
+#ifndef P1_CW_SPEED_HI
+#define P1_CW_SPEED_HI              100.0
+#endif
+#ifndef P1_CW_PHASE_LO
+#define P1_CW_PHASE_LO              0.0                    // phase [0..1]
+#endif
+#ifndef P1_CW_PHASE_HI
+#define P1_CW_PHASE_HI              1.0
+#endif
+#ifndef P1_CCW_SPEED_LO
+#define P1_CCW_SPEED_LO             0.0
+#endif
+#ifndef P1_CCW_SPEED_HI
+#define P1_CCW_SPEED_HI             100.0
+#endif
+#ifndef P1_CCW_PHASE_LO
+#define P1_CCW_PHASE_LO             0.0
+#endif
+#ifndef P1_CCW_PHASE_HI
+#define P1_CCW_PHASE_HI             1.0
+#endif
+#ifndef P1_PWM_PHASE_OFF
+#define P1_PWM_PHASE_OFF            0.0
 #endif

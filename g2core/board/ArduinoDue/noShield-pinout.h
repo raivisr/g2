@@ -27,8 +27,8 @@
  *
  */
 
-#ifndef gShield_pinout_h
-#define gShield_pinout_h
+#ifndef noShield_pinout_h
+#define noShield_pinout_h
 
 #include <MotatePins.h>
 
@@ -214,7 +214,7 @@ pin_number kInput12_PinNumber = -1;
 
 pin_number kSpindle_EnablePinNumber = 49;
 pin_number kSpindle_DirPinNumber    = -1;
-pin_number kSpindle_PwmPinNumber    = 29;
+pin_number kSpindle_PwmPinNumber    = 66;
 pin_number kSpindle_Pwm2PinNumber   = -1;
 pin_number kCoolant_EnablePinNumber = 31;
 
