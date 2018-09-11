@@ -1,10 +1,13 @@
+
 /*
- * shopbotShield-pinout.h - board pinout specification
+ * motate_pin_assignments.h - pin assignments
  * For: /board/ArduinoDue
  * This file is part of the g2core project
  *
  * Copyright (c) 2013 - 2018 Robert Giseburt
  * Copyright (c) 2013 - 2018 Alden S. Hart Jr.
+ *
+ * This file is part of the Motate Library.
  *
  * This file ("the software") is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 as published by the
@@ -28,24 +31,29 @@
  *
  */
 
-#ifndef shopbotShield_pinout_h
-#define shopbotShield_pinout_h
+#ifndef gShield_pinout_h
+#define gShield_pinout_h
 
 #include <MotatePins.h>
 
+// NOTE: This is a terrible example of a *-pinout.h file!
+// This one is assigned backward in order to match the numbering on the Due.
+// When making your own board, please use one of the other boards as an example
+// of how to assign names to the pins.
+
 // We don't have all of the inputs, so we don't define them.
-#define INPUT1_AVAILABLE 0
-#define INPUT2_AVAILABLE 0
-#define INPUT3_AVAILABLE 0
-#define INPUT4_AVAILABLE 0
-#define INPUT5_AVAILABLE 0
-#define INPUT6_AVAILABLE 0
-#define INPUT7_AVAILABLE 0
-#define INPUT8_AVAILABLE 0
-#define INPUT9_AVAILABLE 0
-#define INPUT10_AVAILABLE 0
-#define INPUT11_AVAILABLE 0
-#define INPUT12_AVAILABLE 0
+#define INPUT1_AVAILABLE 1
+#define INPUT2_AVAILABLE 1
+#define INPUT3_AVAILABLE 1
+#define INPUT4_AVAILABLE 1
+#define INPUT5_AVAILABLE 1
+#define INPUT6_AVAILABLE 1
+#define INPUT7_AVAILABLE 1
+#define INPUT8_AVAILABLE 1
+#define INPUT9_AVAILABLE 1
+#define INPUT10_AVAILABLE 1
+#define INPUT11_AVAILABLE 1
+#define INPUT12_AVAILABLE 1
 #define INPUT13_AVAILABLE 0
 
 #define ADC0_AVAILABLE 0
@@ -85,9 +93,13 @@ namespace Motate {
 
 pin_number kSerial_RXPinNumber = 0;
 pin_number kSerial_TXPinNumber = 1;
+//    pin_number kSerial_RTSPinNumber                      =  8;   // added later
+//    pin_number kSerial_CTSPinNumber                      =  9;   // added later
 
 pin_number kSerial0_RX = 0;
 pin_number kSerial0_TX = 1;
+//    pin_number kSerial0_RTS                     =  8;   // added later
+//    pin_number kSerial0_CTS                     =  9;   // added later
 
 pin_number kI2C_SDAPinNumber = 20;
 pin_number kI2C_SCLPinNumber = 21;
@@ -142,7 +154,7 @@ pin_number kSocket2_Microstep_1PinNumber    = 27;
 pin_number kSocket2_Microstep_2PinNumber    = -1;
 pin_number kSocket2_VrefPinNumber           = -1;  // 62; //PWMTimer<1>
 
-pin_number kSocket3_SPISlaveSelectPinNumber = -1;
+pin_number kSocket3_SPISlaveSelectPinNumber = 52;
 pin_number kSocket3_InterruptPinNumber      = -1;
 pin_number kSocket3_StepPinNumber           = 4;
 pin_number kSocket3_DirPinNumber            = 7;
@@ -183,25 +195,33 @@ pin_number kSocket6_Microstep_2PinNumber    = -1;
 pin_number kSocket6_VrefPinNumber           = -1;  // 67; //PWMTimer<0>
 
 
-pin_number kXAxis_MinPinNumber = 25;
-pin_number kXAxis_MaxPinNumber = -1;
-pin_number kYAxis_MinPinNumber = 25;
-pin_number kYAxis_MaxPinNumber = -1;
-pin_number kZAxis_MinPinNumber = 23;
-pin_number kZAxis_MaxPinNumber = 25;
-pin_number kAAxis_MinPinNumber = -1;
-pin_number kAAxis_MaxPinNumber = -1;
-pin_number kBAxis_MinPinNumber = -1;
-pin_number kBAxis_MaxPinNumber = -1;
-pin_number kCAxis_MinPinNumber = -1;
-pin_number kCAxis_MaxPinNumber = -1;
+pin_number kInput1_PinNumber = 14;
+pin_number kInput2_PinNumber = 15;
+pin_number kInput3_PinNumber = 16;
+pin_number kInput4_PinNumber = 17;
+pin_number kInput5_PinNumber = 18;
+pin_number kInput6_PinNumber = 19;
 
-pin_number kSD_CardDetect         = -1;
-pin_number kInterlock_InPinNumber = -1;
-pin_number kOutputSAFE_PinNumber  = -1;  // SAFE signal
+pin_number kInput7_PinNumber  = 58;
+pin_number kInput8_PinNumber  = 59;
+pin_number kInput9_PinNumber  = 60;
+pin_number kInput10_PinNumber = 61;
+pin_number kInput11_PinNumber = 65;
+pin_number kInput12_PinNumber = 51;
+
+pin_number kSpindle_EnablePinNumber = 12;
+pin_number kSpindle_DirPinNumber    = -1;  // 13;
+pin_number kSpindle_PwmPinNumber    = 11;
+pin_number kSpindle_Pwm2PinNumber   = 9;
+pin_number kCoolant_EnablePinNumber = 57;
+
+pin_number kSD_CardDetectPinNumber = -1;
+pin_number kInterlock_InPinNumber  = -1;
+pin_number kOutputSAFE_PinNumber   = -1;  // SAFE signal
 
 pin_number kLED_USBRXPinNumber = 72;
 pin_number kLED_USBTXPinNumber = 73;
+
 
 pin_number kOutput1_PinNumber = -1;  // DO_1: Extruder1_PWM
 pin_number kOutput2_PinNumber = -1;  // DO_2: Extruder2_PWM
@@ -238,26 +258,6 @@ pin_number kADC12_PinNumber = -1;  // 162;
 pin_number kADC13_PinNumber = -1;  // Not physially pinned out
 pin_number kADC14_PinNumber = -1;  // Not physially pinned out
 
-
-pin_number kInput1_PinNumber = 14;
-pin_number kInput2_PinNumber = 15;
-pin_number kInput3_PinNumber = 16;
-pin_number kInput4_PinNumber = 17;
-pin_number kInput5_PinNumber = 18;
-pin_number kInput6_PinNumber = 19;
-
-pin_number kInput7_PinNumber  = 58;
-pin_number kInput8_PinNumber  = 59;
-pin_number kInput9_PinNumber  = 60;
-pin_number kInput10_PinNumber = 61;
-pin_number kInput11_PinNumber = 65;
-pin_number kInput12_PinNumber = 51;
-
-pin_number kSpindle_EnablePinNumber = 52;
-pin_number kSpindle_DirPinNumber    = 51;  // 13;
-pin_number kSpindle_PwmPinNumber    = 11;
-pin_number kSpindle_Pwm2PinNumber   = 9;
-pin_number kCoolant_EnablePinNumber = -1;
 
 // GRBL / gShield compatibility pins -- Due board ONLY
 
