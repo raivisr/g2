@@ -1,5 +1,5 @@
 /*
- * gShield-pinout.h - board pinout specification
+ * noShield-pinout.h - board pinout specification
  * This file is part of the g2core project
  *
  * Copyright (c) 2013 - 2016 Robert Giseburt
@@ -208,7 +208,7 @@ pin_number kInput6_PinNumber = -1;
 pin_number kInput7_PinNumber  = -1;
 pin_number kInput8_PinNumber  = -1;
 pin_number kInput9_PinNumber  = -1;
-pin_number kInput10_PinNumber = -1;
+pin_number kInput10_PinNumber  = -1;
 pin_number kInput11_PinNumber = -1;
 pin_number kInput12_PinNumber = -1;
 
@@ -218,7 +218,7 @@ pin_number kSpindle_PwmPinNumber    = 66;
 pin_number kSpindle_Pwm2PinNumber   = -1;
 pin_number kCoolant_EnablePinNumber = 31;
 
-pin_number kWatchdogPinNumber = 61;
+pin_number kWatchDog_PinNumber = 61;
 
 // GRBL / gShield compatibility pins -- Due board ONLY
 

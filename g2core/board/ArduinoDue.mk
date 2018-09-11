@@ -44,11 +44,9 @@ ifeq ("$(BOARD)","shopbotShield")
 endif
 
 ifeq ("$(BOARD)","noShield")
-    # This is a due with a shopbot shield. We'll use the Due platform, but set defines
-    # for the code to get the pinout right.
 
     BASE_BOARD = g2core-due
-    DEVICE_DEFINES += MOTATE_BOARD="gShield"
+    DEVICE_DEFINES += MOTATE_BOARD="noShield"
     DEVICE_DEFINES += SETTINGS_FILE=${SETTINGS_FILE}
 endif
 

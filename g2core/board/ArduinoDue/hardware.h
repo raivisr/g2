@@ -149,7 +149,7 @@ static OutputPin<Motate::kCoolant_EnablePinNumber> mist_enable_pin;
 
 // Input pins are defined in gpio.cpp
 
-static PWMOutputPin<Motate::kWatchdogPinNumber> watchdog_pwm_pin;
+static PWMOutputPin<Motate::kWatchDog_PinNumber> watchdog_pwm_pin;
 
 /********************************
  * Function Prototypes (Common) *
